@@ -1,7 +1,7 @@
 # Apollo + GraphQL + React -> QUERIES!!!
 
 Following Apollo Documentation: https://www.apollographql.com/docs/react/data/queries/
-![image](https://user-images.githubusercontent.com/50753891/189020056-109193db-ac56-4383-b678-d69b0e635296.png)
+![image](https://user-images.githubusercontent.com/50753891/189046062-e81c906d-7c84-4a6e-9712-1c6bd48d8949.png)
 
 # Getting Started with Create React App
 
