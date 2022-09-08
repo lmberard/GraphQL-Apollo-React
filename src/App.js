@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from './logo.png';
 import './App.css';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, NetworkStatus } from '@apollo/client';
 
 const GET_DOGS = gql`
   query getDogs {
@@ -47,10 +47,13 @@ function DogPhoto({breed}) {
   // });
 
   // 2. REFETCHING: refetch manually after one event
-  const { loading, error, data, refetch } = useQuery(GET_DOG_PHOTO, {
+  // what about the loading now? how do i know i am refetching? -> networkStatus
+  const { loading, error, data, refetch, networkStatus } = useQuery(GET_DOG_PHOTO, {
     variables: { breed },
+    notifyOnNetworkStatusChange: true,
   });
 
+  if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
   if (loading) return null;
   if (error) return `Error! ${error}`;
   console.log('data dog selected: ', data);
