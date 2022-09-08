@@ -9,7 +9,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client
 
 // 2. Initialice apolloClient 
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/', // url for a graphQL server (this link creates one)
+  uri: "https://71z1g.sse.codesandbox.io/", //change url for this example
   cache: new InMemoryCache(), //cache is an instance of InMemoryCache
 });
 

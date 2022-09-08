@@ -1,6 +1,6 @@
-# Apollo + GraphQL + React 
+# Apollo + GraphQL + React -> QUERIES!!!
 
-Following Apollo Documentation: https://www.apollographql.com/docs/react/get-started
+Following Apollo Documentation: https://www.apollographql.com/docs/react/data/queries/
 ![image](https://user-images.githubusercontent.com/50753891/189020056-109193db-ac56-4383-b678-d69b0e635296.png)
 
 # Getting Started with Create React App
