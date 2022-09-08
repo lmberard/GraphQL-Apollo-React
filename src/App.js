@@ -26,7 +26,7 @@ function Dogs({ onDogSelected }) {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error}`;
-
+  console.log('data entera: ', data);
   return (
     <select name='dog' onChange={onDogSelected}>
       {data.dogs.map((dog) => (
@@ -38,26 +38,36 @@ function Dogs({ onDogSelected }) {
   );
 }
 
+// ----------------------------------------------------------------
 function DogPhoto({breed}) {
-  const { loading, error, data } = useQuery(GET_DOG_PHOTO, {
-    variables: { breed }
+  // 1. POLLING: refetchs automatic after specific time in ms
+  // const { loading, error, data } = useQuery(GET_DOG_PHOTO, {
+  //   variables: { breed },
+  //   pollInterval: 500, 
+  // });
+
+  // 2. REFETCHING: refetch manually after one event
+  const { loading, error, data, refetch } = useQuery(GET_DOG_PHOTO, {
+    variables: { breed },
   });
 
   if (loading) return null;
   if (error) return `Error! ${error}`;
-
+  console.log('data dog selected: ', data);
   return (
-    <img src={data.dog.displayImage} alt="dog" style={{ height: 300}}/>
+    <>
+      <img src={data.dog.displayImage} alt="dog" style={{ height: 300}}/>
+      <button onClick={() => refetch()}>Show me another photo!!</button>
+    </>
   );
-  
 }
+// ----------------------------------------------------------------
 
 function FirstDog({ onDogSelected }) {
   const { loading, error, data } = useQuery(GET_DOGS);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  // console.log();
   return (
     <p>First in the array: {data.dogs[0].breed}</p>
   );
@@ -79,8 +89,9 @@ function App() {
       </header>
 
       <body className="App-body">
+        <div>Select one of the following dogs:</div>
         <Dogs onDogSelected={onDogSelected}/>
-        <FirstDog />
+        {/* <FirstDog /> */}
         {selectedDog && <DogPhoto breed={selectedDog}/>}
       </body>
 
