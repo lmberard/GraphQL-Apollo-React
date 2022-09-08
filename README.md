@@ -1,6 +1,7 @@
 # Apollo + GraphQL + React 
 
 Following Apollo Documentation: https://www.apollographql.com/docs/react/get-started
+![image](https://user-images.githubusercontent.com/50753891/189020056-109193db-ac56-4383-b678-d69b0e635296.png)
 
 # Getting Started with Create React App
 
